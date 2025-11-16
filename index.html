@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Мінігра 8 — «Є чи не є?»</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Динамічний фон та зірки -->
+  <div id="background"></div>
+  <div id="star-container"></div>
+
+  <!-- Стартовий екран -->
+  <div id="start-screen" class="overlay">
+    <div class="start-content">
+      <img src="character.png" alt="Персонаж" />
+      <h1>Мінігра 8 — «Є чи не є?»</h1>
+      <p>
+        Новий правопис додав чарівної букви «є» у слова іншомовного походження. Вмієш
+        розрізнити проєкт і проект? Натискай на правильний варіант або виправляй
+        його!
+      </p>
+      <button id="start-btn">Почати</button>
+    </div>
+  </div>
+
+  <!-- Ігровий контейнер -->
+  <div id="game-container" class="hidden">
+    <div class="header">
+      <h2>Є чи не є?</h2>
+      <p class="instructions">
+        Обирай, чи правильний поточний варіант, або натискай «Виправити», щоб
+        перетворити його на новий правопис. Час не безкінечний!
+      </p>
+    </div>
+    <div class="scoreboard">
+      <div class="tries" id="tries-container"></div>
+      <div class="timer"><span id="timer">30</span>&nbsp;с</div>
+      <div class="progress"><span id="current-index">0</span>/<span id="total-words">0</span></div>
+    </div>
+    <div id="word-area"></div>
+    <div id="choice-buttons" class="hidden">
+      <button id="btn-correct" class="choice-btn">Правильно</button>
+      <button id="btn-fix" class="choice-btn">Виправити</button>
+    </div>
+    <p id="explanation" class="hidden"></p>
+  </div>
+
+  <!-- Фінальний екран -->
+  <div id="finish-screen" class="overlay hidden">
+    <div class="finish-content">
+      <h2>Результат</h2>
+      <p>Твоя робота зі словами завершена! Ось як змінилися слова:</p>
+      <div id="summary-list"></div>
+      <p>Кодове слово для наступної пригоди — <strong>проєкт</strong>. Запам’ятай його!</p>
+      <div class="general-progress">
+        <div class="general-progress-bar">
+          <span class="general-progress-fill"></span>
+        </div>
+        <div class="general-progress-text">8 / 9</div>
+      </div>
+      <div class="cta-buttons">
+        <a href="https://apps.apple.com/ua/app/%D0%B4%D1%80%D0%B0%D0%B3%D1%96-%D0%BF%D1%96%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D0%B4%D0%BE-%D0%BD%D0%BC%D1%82-%D0%B7%D0%BD%D0%BE/id6502047535?utm_source=landing&amp;utm_medium=button&amp;utm_campaign=app_download" target="_blank" rel="noopener">Драгі на iOS</a>
+        <a href="https://play.google.com/store/apps/details?id=ua.dragi.education&amp;utm_source=landing&amp;utm_medium=button&amp;utm_campaign=app_download" target="_blank" rel="noopener">Драгі на Android</a>
+        <a href="https://t.me/dragi_space" target="_blank" rel="noopener">Телеграм Драгі</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,318 @@
+/* Global styles for Mini-game 8 "Є чи не є?" */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f5f5f5;
+  overflow: hidden;
+}
+
+/* Background image fills entire screen */
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('background.png');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.5);
+  z-index: -2;
+}
+
+/* Starry overlay */
+#star-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+#star-container .star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: twinkle 4s infinite ease-in-out;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+/* Overlay screens (start and finish) */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  padding: 1rem;
+  z-index: 10;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+/* Start screen content */
+.start-content {
+  max-width: 500px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+.start-content img {
+  width: 120px;
+  margin-bottom: 1rem;
+}
+.start-content h1 {
+  font-size: 1.8rem;
+  margin: 0.5rem 0;
+}
+.start-content p {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+}
+.start-content button {
+  background: #f5c84c;
+  color: #000;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.start-content button:hover {
+  background: #ffdf6e;
+}
+
+/* Game container */
+#game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  padding-top: 2rem;
+  text-align: center;
+}
+#game-container.hidden {
+  display: none;
+}
+
+/* Header and instructions */
+#game-container .header h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #ffeb8b;
+}
+#game-container .header .instructions {
+  margin: 0.5rem 0 1rem;
+  font-size: 0.9rem;
+  max-width: 600px;
+}
+
+/* Scoreboard */
+.scoreboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+.scoreboard .tries {
+  display: flex;
+  gap: 0.2rem;
+}
+.heart {
+  font-size: 1.4rem;
+  color: #ff758f;
+  transition: filter 0.3s;
+}
+.heart.lost {
+  filter: grayscale(1) brightness(0.5);
+}
+.scoreboard .timer {
+  color: #9ad1ff;
+}
+.scoreboard .progress {
+  color: #9ad1ff;
+}
+
+/* Word area */
+#word-area {
+  min-height: 80px;
+  font-size: 2rem;
+  padding: 1rem;
+  margin: 1rem auto;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  flex-wrap: wrap;
+}
+#word-area.correct {
+  border: 2px solid #8bc34a;
+}
+#word-area.incorrect {
+  border: 2px solid #e57373;
+}
+
+/* Choice buttons */
+#choice-buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 0.5rem auto;
+}
+#choice-buttons.hidden {
+  display: none;
+}
+.choice-btn {
+  background: #3b5db5;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.choice-btn:hover {
+  background: #5c7ce6;
+}
+
+/* Explanation text */
+#explanation {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  max-width: 600px;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+#explanation.hidden {
+  display: none;
+}
+
+/* Finish screen */
+#finish-screen .finish-content {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  text-align: center;
+}
+#finish-screen .finish-content h2 {
+  margin-top: 0;
+  color: #ffeb8b;
+}
+#finish-screen .finish-content p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+#summary-list {
+  text-align: left;
+  max-height: 200px;
+  overflow-y: auto;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+#summary-list p {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+}
+
+/* General progress bar */
+.general-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  width: 100%;
+  justify-content: center;
+}
+.general-progress-bar {
+  width: 70%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.general-progress-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #f7b733, #ffdf6e);
+  border-radius: 4px;
+}
+.general-progress-text {
+  font-size: 0.9rem;
+  color: #ffeb8b;
+}
+
+/* CTA buttons */
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.cta-buttons a {
+  background: #3b5db5;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+.cta-buttons a:hover {
+  background: #5c7ce6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .start-content, #finish-screen .finish-content {
+    padding: 1rem;
+  }
+  .start-content h1 {
+    font-size: 1.4rem;
+  }
+  #game-container .header h2 {
+    font-size: 1.4rem;
+  }
+  #word-area {
+    font-size: 1.6rem;
+    min-height: 60px;
+  }
+  .choice-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+  }
+  .scoreboard {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  #summary-list {
+    max-height: 150px;
+  }
+}
